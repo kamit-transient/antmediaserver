@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  antmedia:
+    build: 
+      context: ./
+      dockerfile: ./Dockerfile
+    container_name: antmedia
+    restart: on-failure
+    command: ["ls /home/app","ls /usr/local","ls /home"]
+    entrypoint: /home/am_start.sh
+    network_mode: healthtiiips 
+    volumes:
+      - ./antmedia_vol:/home/app/antmedia/
